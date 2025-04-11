@@ -18,8 +18,8 @@ body {
   position: absolute;
   inset: 0;
   background: url('https://www.transparenttextures.com/patterns/stardust.png'),
-              radial-gradient(circle at 20% 20%, rgba(255, 0, 255, 0.1), transparent 40%),
-              radial-gradient(circle at 80% 80%, rgba(0, 255, 255, 0.1), transparent 40%);
+              radial-gradient(circle at 20% 20%, rgba(255, 0, 255, 0.08), transparent 40%),
+              radial-gradient(circle at 80% 80%, rgba(0, 255, 255, 0.08), transparent 40%);
   z-index: 0;
   animation: pulse 10s infinite alternate ease-in-out;
 }
@@ -37,10 +37,13 @@ header {
   margin-bottom: 0.2em;
 }
 .app-name {
-  font-size: 2em;
+  font-size: 2.2em;
   margin: 0.2em 0 1em;
   font-weight: 600;
   letter-spacing: 1px;
+  background: linear-gradient(to right, #f97316, #fb923c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .headline-container {
   position: relative;
