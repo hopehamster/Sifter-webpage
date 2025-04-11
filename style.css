@@ -31,6 +31,17 @@ header {
   padding: 2em;
   z-index: 1;
 }
+.logo {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 0.2em;
+}
+.app-name {
+  font-size: 2em;
+  margin: 0.2em 0 1em;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
 .headline-container {
   position: relative;
   height: 90px;
@@ -75,7 +86,15 @@ button {
   cursor: pointer;
   box-shadow: 0 0 10px rgba(255, 100, 0, 0.5);
 }
+.badges {
+  margin-top: 2.5em;
+}
+.badges img {
+  height: 45px;
+  margin: 0 10px;
+}
 @media (max-width: 600px) {
   .headline { font-size: 1.2em; }
   input[type="email"] { width: 180px; }
+  .badges img { height: 40px; }
 }
