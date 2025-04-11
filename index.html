@@ -2,43 +2,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sifter App – Talk Freely Nearby</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sifter – Real People. Real Proximity.</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
-        <h1>Sifter</h1>
-        <p>Talk to anyone near you. Stay anonymous if you want.</p>
-    </header>
+  <header>
+    <div class="headline-container">
+      <div class="headline active">You’re surrounded by stories. Sifter lets you hear them.</div>
+      <div class="headline">Before there were followers, there were neighbors.</div>
+      <div class="headline">This isn’t an app. It’s a portal to the people around you.</div>
+    </div>
+    <p class="subheadline">
+      Real conversations. Local trade. Human connection — right where you are.<br/>
+      Sifter brings your block back online.
+    </p>
+    <form action="https://formspree.io/f/moqgjznb" method="POST" class="email-form">
+      <input type="email" name="email" placeholder="Your email" required>
+      <button type="submit">Notify Me</button>
+    </form>
+  </header>
 
-    <section id="signup">
-        <h2>Coming Soon</h2>
-        <p>Be the first to know when we launch.</p>
-        <form action="https://formspree.io/f/moqgjznb" method="POST">
-            <input type="email" name="email" placeholder="Your email" required>
-            <button type="submit">Notify Me</button>
-        </form>
-    </section>
-
-    <section id="features">
-        <div class="feature-card">
-            <h3>Geofenced Chats</h3>
-            <p>Connect with people only within your set perimeter.</p>
-        </div>
-        <div class="feature-card">
-            <h3>Anonymous or Named</h3>
-            <p>Choose if you want to reveal your identity or stay hidden.</p>
-        </div>
-        <div class="feature-card">
-            <h3>No Contact Info Needed</h3>
-            <p>Say what you want, with who you want — no sign-in required.</p>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 Sifter Studios Inc.</p>
-    </footer>
+  <script>
+    const headlines = document.querySelectorAll('.headline');
+    let index = 0;
+    setInterval(() => {
+      headlines[index].classList.remove('active');
+      index = (index + 1) % headlines.length;
+      headlines[index].classList.add('active');
+    }, 5000);
+  </script>
 </body>
 </html>
