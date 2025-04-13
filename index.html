@@ -3,242 +3,366 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sifter - Discover a new, discreet way to meet people for free!</title>
+    <title>Sifter - Coming Soon</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #4a00e0, #8e2de2);
-            color: #ffffff;
+            background: linear-gradient(135deg, #4a00e0 0%, #8e2de2 100%);
+            color: white;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
         }
         .gradient-bg {
-            background: linear-gradient(135deg, #4a00e0, #8e2de2);
+            background: linear-gradient(135deg, #4a00e0 0%, #8e2de2 100%);
         }
-        .gradient-bg-reverse {
-            background: linear-gradient(135deg, #8e2de2, #4a00e0);
+        .section {
+            padding: 5rem 0;
+        }
+        .beta-tag {
+            background: linear-gradient(90deg, #ff6b6b, #ff9e80);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            color: white;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+        }
+        .coming-soon-badge {
+            background: linear-gradient(90deg, #ff6b6b, #ff9e80);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 1rem;
+            animation: pulse 2s infinite;
         }
         .feature-card {
             background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
             backdrop-filter: blur(10px);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
         }
         .feature-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
-        .app-shadow {
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
-        }
-        .btn-primary {
-            background: linear-gradient(135deg, #ff6b6b, #ff8e53);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(255, 107, 107, 0.3), 0 4px 6px -2px rgba(255, 142, 83, 0.2);
-        }
-        .section {
-            padding-top: 4rem;
-            padding-bottom: 4rem;
-        }
-        .glass-card {
+        .testimonial-card {
             background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .testimonial {
+        .waitlist-form {
             background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: transform 0.3s ease;
+            border-radius: 50px;
+            overflow: hidden;
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
         }
-        .testimonial:hover {
-            transform: scale(1.02);
+        .waitlist-form input {
+            background: transparent;
+            border: none;
+            padding: 1rem 1.5rem;
+            color: white;
+            flex-grow: 1;
+        }
+        .waitlist-form input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .waitlist-form button {
+            background: linear-gradient(90deg, #ff6b6b, #ff9e80);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 50px;
+            margin: 5px;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 15px;
+        }
+        .comparison-table th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        .comparison-table td {
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .comparison-table tr td:first-child {
+            border-radius: 12px 0 0 12px;
+        }
+        .comparison-table tr td:last-child {
+            border-radius: 0 12px 12px 0;
+        }
+        .highlighted-text {
+            color: #ff9e80;
+            font-weight: 600;
+        }
+        .app-screenshot {
+            position: relative;
+            z-index: 2;
+        }
+        .glow-effect {
+            position: absolute;
+            width: 80%;
+            height: 80%;
+            background: rgba(74, 0, 224, 0.6);
+            filter: blur(60px);
+            z-index: 1;
+            border-radius: 100%;
+            top: 10%;
+            left: 10%;
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        /* Section dividers */
+        .divider {
+            height: 3px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            margin: 2rem 0;
+        }
+        
+        /* Smooth scrolling for the whole page */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Ensuring spacing between sections */
+        section {
+            margin-bottom: 4rem;
+        }
+        
+        /* Better focus for accessibility */
+        input:focus, button:focus {
+            outline: 2px solid #ff9e80;
+        }
+        
+        /* Responsive fixes */
+        @media (max-width: 768px) {
+            .section {
+                padding: 3rem 0;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.75rem;
+            }
         }
     </style>
 </head>
-<body class="overflow-x-hidden">
+<body>
     <!-- Header -->
-    <header class="fixed top-0 left-0 right-0 z-50 p-4 gradient-bg shadow-lg backdrop-filter backdrop-blur-lg bg-opacity-80">
+    <header class="py-6">
         <div class="container mx-auto flex justify-between items-center">
             <div class="flex items-center">
-                <div class="text-3xl font-bold mr-2">S</div>
-                <h1 class="text-2xl font-bold">Sifter</h1>
+                <h1 class="text-2xl font-bold">SIFTER <span class="beta-tag">BETA</span></h1>
             </div>
-            <nav class="hidden md:flex space-x-8">
-                <a href="#features" class="hover:text-pink-300 transition-colors">Features</a>
-                <a href="#map" class="hover:text-pink-300 transition-colors">Explore</a>
-                <a href="#privacy" class="hover:text-pink-300 transition-colors">Privacy</a>
-                <a href="#marketplace" class="hover:text-pink-300 transition-colors">Marketplace</a>
-                <a href="#testimonials" class="hover:text-pink-300 transition-colors">Testimonials</a>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="#features" class="hover:text-pink-300">Features</a></li>
+                    <li><a href="#explore" class="hover:text-pink-300">Explore</a></li>
+                    <li><a href="#privacy" class="hover:text-pink-300">Privacy</a></li>
+                    <li><a href="#marketplace" class="hover:text-pink-300">Marketplace</a></li>
+                    <li><a href="#testimonials" class="hover:text-pink-300">Testimonials</a></li>
+                </ul>
             </nav>
-            <div class="md:hidden">
-                <button class="text-white focus:outline-none">
-                    <i class="fas fa-bars text-2xl"></i>
-                </button>
-            </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="pt-32 pb-20 px-4">
-        <div class="container mx-auto flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 mb-10 md:mb-0">
-                <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">Discover a new, discreet way to meet people for free!</h1>
-                <p class="text-xl mb-8 opacity-90">Connect locally, explore nearby activities, and sell products with absolutely zero fees. Sifter brings people together in a safe, private, and economical way.</p>
-                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                    <a href="#download" class="btn-primary py-3 px-8 rounded-full font-semibold text-center">Download Now</a>
-                    <a href="#features" class="bg-white bg-opacity-20 hover:bg-opacity-30 transition-all py-3 px-8 rounded-full font-semibold text-center">Learn More</a>
+    <section class="section pt-10 pb-16">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <div class="coming-soon-badge">COMING SOON</div>
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">Discover a new, discreet way to meet people for free!</h1>
+                    <p class="text-xl mb-8">Connect locally, explore nearby activities, and sell products with absolutely zero fees. Sifter brings people together in a safe, private, and economical way.</p>
+                    
+                    <div class="mb-8">
+                        <h3 class="text-xl font-semibold mb-4">Join our waitlist</h3>
+                        <p class="mb-4">Be the first to know when Sifter launches! Get early access and exclusive offers.</p>
+                        <form class="waitlist-form">
+                            <input type="email" placeholder="Enter your email address" required>
+                            <button type="submit">Join Waitlist</button>
+                        </form>
+                    </div>
                 </div>
-            </div>
-            <div class="md:w-1/2 flex justify-center">
-                <img src="https://page.genspark.site/v1/base64_upload/4f63fc56e3d3bb5a4730ac6106a986c8" alt="Sifter App Interface" class="w-3/4 md:w-auto max-w-md app-shadow rounded-3xl">
+                <div class="md:w-1/2 relative">
+                    <div class="glow-effect"></div>
+                    <div class="flex justify-center">
+                        <img src="https://page.genspark.site/v1/base64_upload/4f63fc56e3d3bb5a4730ac6106a986c8" style="width:100%; height:auto; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.25); max-width:450px;" alt="Sifter App Interface" class="app-screenshot">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
+    <div class="divider"></div>
+
     <!-- Features Section -->
-    <section id="features" class="section px-4 py-20">
+    <section id="features" class="section">
         <div class="container mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Explore Amazing Features</h2>
-            <p class="text-xl text-center mb-16 max-w-3xl mx-auto opacity-90">Everything you need to connect with people, discover local activities, and sell products with absolutely zero fees.</p>
+            <h2 class="text-3xl font-bold mb-10 text-center">Explore Amazing Features</h2>
+            <p class="text-xl text-center mb-12">Everything you need to connect with people, discover local activities, and sell products with absolutely zero fees.</p>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Feature 1 -->
-                <div class="feature-card rounded-xl p-6">
-                    <div class="text-pink-300 text-4xl mb-4">
-                        <i class="fas fa-user-friends"></i>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="feature-card">
+                    <div class="text-3xl mb-4 text-pink-300">
+                        <i class="fas fa-user-secret"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Meet People Discreetly</h3>
-                    <p class="mb-4 opacity-90">Connect with like-minded individuals in your area while maintaining your privacy. Our discreet matching system ensures your personal information stays secure.</p>
+                    <h3 class="text-xl font-bold mb-4">Meet People Discreetly</h3>
+                    <p class="mb-4">Connect with like-minded individuals in your area while maintaining your privacy. Our discreet matching system ensures your personal information stays secure.</p>
                     <ul class="space-y-2">
                         <li class="flex items-start">
-                            <i class="fas fa-check text-green-400 mt-1 mr-2"></i>
+                            <span class="text-pink-300 mr-2">✓</span>
                             <span>Create an anonymous profile</span>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-check text-green-400 mt-1 mr-2"></i>
+                            <span class="text-pink-300 mr-2">✓</span>
                             <span>Control who sees your information</span>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-check text-green-400 mt-1 mr-2"></i>
+                            <span class="text-pink-300 mr-2">✓</span>
                             <span>Connect with people for free</span>
                         </li>
                     </ul>
                 </div>
                 
-                <!-- Feature 2 -->
-                <div class="feature-card rounded-xl p-6">
-                    <div class="text-pink-300 text-4xl mb-4">
+                <div class="feature-card">
+                    <div class="text-3xl mb-4 text-pink-300">
                         <i class="fas fa-map-marked-alt"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Explore Nearby Activities</h3>
-                    <p class="mb-4 opacity-90">Discover events, meetups, and activities happening around you in real-time. Our interactive map makes it easy to see what's happening now!</p>
+                    <h3 class="text-xl font-bold mb-4">Explore Nearby Activities</h3>
+                    <p class="mb-4">Discover events, meetups, and activities happening around you in real-time. Our interactive map makes it easy to see what's happening now!</p>
                     <ul class="space-y-2">
                         <li class="flex items-start">
-                            <i class="fas fa-check text-green-400 mt-1 mr-2"></i>
+                            <span class="text-pink-300 mr-2">✓</span>
                             <span>Real-time map of local activities</span>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-check text-green-400 mt-1 mr-2"></i>
+                            <span class="text-pink-300 mr-2">✓</span>
                             <span>Filter by interest and distance</span>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-check text-green-400 mt-1 mr-2"></i>
+                            <span class="text-pink-300 mr-2">✓</span>
                             <span>Join events with one tap</span>
                         </li>
                     </ul>
                 </div>
                 
-                <!-- Feature 3 -->
-                <div class="feature-card rounded-xl p-6">
-                    <div class="text-pink-300 text-4xl mb-4">
+                <div class="feature-card">
+                    <div class="text-3xl mb-4 text-pink-300">
                         <i class="fas fa-comments"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Secure Chat Rooms</h3>
-                    <p class="mb-4 opacity-90">Easily create and manage chat rooms with auto-delete functionality to keep your conversations private and secure.</p>
+                    <h3 class="text-xl font-bold mb-4">Secure Chat Rooms</h3>
+                    <p class="mb-4">Easily create and manage chat rooms with auto-delete functionality to keep your conversations private and secure.</p>
                     <ul class="space-y-2">
                         <li class="flex items-start">
-                            <i class="fas fa-check text-green-400 mt-1 mr-2"></i>
+                            <span class="text-pink-300 mr-2">✓</span>
                             <span>Auto-delete messages after set time</span>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-check text-green-400 mt-1 mr-2"></i>
+                            <span class="text-pink-300 mr-2">✓</span>
                             <span>Group chats with privacy controls</span>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-check text-green-400 mt-1 mr-2"></i>
+                            <span class="text-pink-300 mr-2">✓</span>
                             <span>End-to-end encrypted messaging</span>
                         </li>
                     </ul>
                 </div>
                 
-                <!-- Feature 4 -->
-                <div class="feature-card rounded-xl p-6">
-                    <div class="text-pink-300 text-4xl mb-4">
-                        <i class="fas fa-user-shield"></i>
+                <div class="feature-card">
+                    <div class="text-3xl mb-4 text-pink-300">
+                        <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Customizable Privacy</h3>
-                    <p class="mb-4 opacity-90">Take control of your digital footprint with customizable privacy settings that put you in charge of your data.</p>
+                    <h3 class="text-xl font-bold mb-4">Customizable Privacy</h3>
+                    <p class="mb-4">Take control of your digital footprint with customizable privacy settings that put you in charge of your data.</p>
                     <ul class="space-y-2">
                         <li class="flex items-start">
-                            <i class="fas fa-check text-green-400 mt-1 mr-2"></i>
+                            <span class="text-pink-300 mr-2">✓</span>
                             <span>Granular privacy controls</span>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-check text-green-400 mt-1 mr-2"></i>
+                            <span class="text-pink-300 mr-2">✓</span>
                             <span>Control who can contact you</span>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-check text-green-400 mt-1 mr-2"></i>
+                            <span class="text-pink-300 mr-2">✓</span>
                             <span>Easy profile visibility management</span>
                         </li>
                     </ul>
                 </div>
                 
-                <!-- Feature 5 -->
-                <div class="feature-card rounded-xl p-6">
-                    <div class="text-pink-300 text-4xl mb-4">
-                        <i class="fas fa-store"></i>
+                <div class="feature-card">
+                    <div class="text-3xl mb-4 text-pink-300">
+                        <i class="fas fa-dollar-sign"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Zero-Fee Marketplace</h3>
-                    <p class="mb-4 opacity-90">Sell your products and services without paying a single penny in fees. Keep 100% of your earnings with our revolutionary marketplace.</p>
+                    <h3 class="text-xl font-bold mb-4">Zero-Fee Marketplace</h3>
+                    <p class="mb-4">Sell your products and services without paying a single penny in fees. Keep 100% of your earnings with our revolutionary marketplace.</p>
                     <ul class="space-y-2">
                         <li class="flex items-start">
-                            <i class="fas fa-check text-green-400 mt-1 mr-2"></i>
+                            <span class="text-pink-300 mr-2">✓</span>
                             <span>0% commission on all sales</span>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-check text-green-400 mt-1 mr-2"></i>
+                            <span class="text-pink-300 mr-2">✓</span>
                             <span>Digital coupons and promotions</span>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-check text-green-400 mt-1 mr-2"></i>
+                            <span class="text-pink-300 mr-2">✓</span>
                             <span>Direct connection with local buyers</span>
                         </li>
                     </ul>
                 </div>
                 
-                <!-- Feature 6 -->
-                <div class="feature-card rounded-xl p-6">
-                    <div class="text-pink-300 text-4xl mb-4">
+                <div class="feature-card">
+                    <div class="text-3xl mb-4 text-pink-300">
                         <i class="fas fa-leaf"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Go Green with Digital</h3>
-                    <p class="mb-4 opacity-90">Reduce your carbon footprint with our digital coupons and paperless marketplace. Support local businesses while helping the environment.</p>
+                    <h3 class="text-xl font-bold mb-4">Go Green with Digital</h3>
+                    <p class="mb-4">Reduce your carbon footprint with our digital coupons and paperless marketplace. Support local businesses while helping the environment.</p>
                     <ul class="space-y-2">
                         <li class="flex items-start">
-                            <i class="fas fa-check text-green-400 mt-1 mr-2"></i>
+                            <span class="text-pink-300 mr-2">✓</span>
                             <span>Paperless digital coupons</span>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-check text-green-400 mt-1 mr-2"></i>
+                            <span class="text-pink-300 mr-2">✓</span>
                             <span>Support local sustainable businesses</span>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-check text-green-400 mt-1 mr-2"></i>
+                            <span class="text-pink-300 mr-2">✓</span>
                             <span>Reduce waste with digital transactions</span>
                         </li>
                     </ul>
@@ -247,51 +371,60 @@
         </div>
     </section>
 
+    <div class="divider"></div>
+
     <!-- Map Exploration Section -->
-    <section id="map" class="section px-4 py-20 gradient-bg-reverse">
+    <section id="explore" class="section">
         <div class="container mx-auto">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-10 md:mb-0 flex justify-center">
-                    <img src="https://page.genspark.site/v1/base64_upload/8d24b2dc4d95c6a7ef730f838113a32d" alt="Sifter Map Feature" class="w-3/4 md:w-auto max-w-md app-shadow rounded-3xl">
+            <div class="flex flex-col-reverse md:flex-row items-center">
+                <div class="md:w-1/2 relative mb-10 md:mb-0">
+                    <div class="glow-effect"></div>
+                    <div class="flex justify-center">
+                        <img src="https://page.genspark.site/v1/base64_upload/8d24b2dc4d95c6a7ef730f838113a32d" style="width:100%; height:auto; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.25); max-width:450px;" alt="Sifter Map Feature" class="app-screenshot">
+                    </div>
                 </div>
-                <div class="md:w-1/2">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Explore the Map.<br>Find What's Happening Now.</h2>
-                    <p class="text-xl mb-8 opacity-90">Our interactive map lets you discover events, local businesses, and interesting people in your vicinity. Filter by categories and see what's happening around you in real-time.</p>
+                <div class="md:w-1/2 md:pl-10">
+                    <h2 class="text-3xl font-bold mb-6">Explore the Map.<br>Find What's Happening Now.</h2>
+                    <p class="text-xl mb-8">Our interactive map lets you discover events, local businesses, and interesting people in your vicinity. Filter by categories and see what's happening around you in real-time.</p>
                     
                     <div class="space-y-6">
-                        <div class="flex">
-                            <div class="flex-shrink-0 mr-4">
-                                <div class="h-12 w-12 rounded-full flex items-center justify-center bg-pink-500 bg-opacity-30">
-                                    <i class="fas fa-users text-xl"></i>
-                                </div>
+                        <div class="flex items-start">
+                            <div class="text-2xl text-pink-300 mr-4">
+                                <i class="fas fa-street-view"></i>
                             </div>
                             <div>
                                 <h3 class="text-xl font-semibold mb-2">See Who's Nearby</h3>
-                                <p class="opacity-90">Find people with similar interests in your area and connect instantly.</p>
+                                <p>Find people with similar interests in your area and connect instantly.</p>
                             </div>
                         </div>
                         
-                        <div class="flex">
-                            <div class="flex-shrink-0 mr-4">
-                                <div class="h-12 w-12 rounded-full flex items-center justify-center bg-pink-500 bg-opacity-30">
-                                    <i class="fas fa-calendar-alt text-xl"></i>
-                                </div>
+                        <div class="flex items-start">
+                            <div class="text-2xl text-pink-300 mr-4">
+                                <i class="fas fa-calendar-alt"></i>
                             </div>
                             <div>
                                 <h3 class="text-xl font-semibold mb-2">Discover Local Events</h3>
-                                <p class="opacity-90">See gatherings, meetups, and activities happening right now around you.</p>
+                                <p>See gatherings, meetups, and activities happening right now around you.</p>
                             </div>
                         </div>
                         
-                        <div class="flex">
-                            <div class="flex-shrink-0 mr-4">
-                                <div class="h-12 w-12 rounded-full flex items-center justify-center bg-pink-500 bg-opacity-30">
-                                    <i class="fas fa-filter text-xl"></i>
-                                </div>
+                        <div class="flex items-start">
+                            <div class="text-2xl text-pink-300 mr-4">
+                                <i class="fas fa-filter"></i>
                             </div>
                             <div>
                                 <h3 class="text-xl font-semibold mb-2">Advanced Filtering</h3>
-                                <p class="opacity-90">Filter by interests, distance, and availability to find your perfect match.</p>
+                                <p>Filter by interests, distance, and availability to find your perfect match.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-2xl text-pink-300 mr-4">
+                                <i class="fas fa-tag"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Local Deals</h3>
+                                <p>Find businesses offering special promotions and zero-fee digital coupons.</p>
                             </div>
                         </div>
                     </div>
@@ -300,110 +433,122 @@
         </div>
     </section>
 
+    <div class="divider"></div>
+
     <!-- Chat Rooms Section -->
-    <section id="chat" class="section px-4 py-20">
+    <section class="section">
         <div class="container mx-auto">
             <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-10 md:mb-0 md:order-2 flex justify-center">
-                    <div class="relative">
-                        <div class="absolute inset-0 bg-gradient-to-br from-blue-400 to-purple-600 rounded-3xl opacity-20 blur-lg transform -rotate-6"></div>
-                        <img src="https://page.genspark.site/v1/base64_upload/8d24b2dc4d95c6a7ef730f838113a32d" alt="Sifter Chat Feature" class="relative w-3/4 md:w-auto max-w-md app-shadow rounded-3xl">
-                    </div>
-                </div>
-                <div class="md:w-1/2 md:order-1">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Chat Rooms are Easy to Manage and Auto-Delete</h2>
-                    <p class="text-xl mb-8 opacity-90">Take control of your conversations with our revolutionary chat management system. Create rooms for different purposes, set auto-delete timers, and maintain your privacy.</p>
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h2 class="text-3xl font-bold mb-6">Chat Rooms are Easy to Manage and Auto-Delete</h2>
+                    <p class="text-xl mb-8">Take control of your conversations with our revolutionary chat management system. Create rooms for different purposes, set auto-delete timers, and maintain your privacy.</p>
                     
                     <div class="space-y-6">
-                        <div class="flex">
-                            <div class="flex-shrink-0 mr-4">
-                                <div class="h-12 w-12 rounded-full flex items-center justify-center bg-pink-500 bg-opacity-30">
-                                    <i class="fas fa-clock text-xl"></i>
-                                </div>
+                        <div class="flex items-start">
+                            <div class="text-2xl text-pink-300 mr-4">
+                                <i class="fas fa-clock"></i>
                             </div>
                             <div>
                                 <h3 class="text-xl font-semibold mb-2">Auto-Delete Timers</h3>
-                                <p class="opacity-90">Set messages to automatically disappear after a specified time period.</p>
+                                <p>Set messages to automatically disappear after a specified time period.</p>
                             </div>
                         </div>
                         
-                        <div class="flex">
-                            <div class="flex-shrink-0 mr-4">
-                                <div class="h-12 w-12 rounded-full flex items-center justify-center bg-pink-500 bg-opacity-30">
-                                    <i class="fas fa-user-cog text-xl"></i>
-                                </div>
+                        <div class="flex items-start">
+                            <div class="text-2xl text-pink-300 mr-4">
+                                <i class="fas fa-users-cog"></i>
                             </div>
                             <div>
                                 <h3 class="text-xl font-semibold mb-2">Group Management</h3>
-                                <p class="opacity-90">Easily manage permissions, add or remove members, and control who joins your chats.</p>
+                                <p>Easily manage permissions, add or remove members, and control who joins your chats.</p>
                             </div>
                         </div>
                         
-                        <div class="flex">
-                            <div class="flex-shrink-0 mr-4">
-                                <div class="h-12 w-12 rounded-full flex items-center justify-center bg-pink-500 bg-opacity-30">
-                                    <i class="fas fa-bell text-xl"></i>
-                                </div>
+                        <div class="flex items-start">
+                            <div class="text-2xl text-pink-300 mr-4">
+                                <i class="fas fa-bell"></i>
                             </div>
                             <div>
                                 <h3 class="text-xl font-semibold mb-2">Custom Notifications</h3>
-                                <p class="opacity-90">Set different notification preferences for each chat room and contact.</p>
+                                <p>Set different notification preferences for each chat room and contact.</p>
                             </div>
                         </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-2xl text-pink-300 mr-4">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">End-to-End Encryption</h3>
+                                <p>All your messages are fully encrypted for maximum security and privacy.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 relative">
+                    <div class="glow-effect"></div>
+                    <div class="flex justify-center">
+                        <img src="https://page.genspark.site/v1/base64_upload/8d24b2dc4d95c6a7ef730f838113a32d" style="width:100%; height:auto; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.25); max-width:450px;" alt="Sifter Chat Feature" class="app-screenshot">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <div class="divider"></div>
+
     <!-- Privacy Section -->
-    <section id="privacy" class="section px-4 py-20 gradient-bg-reverse">
+    <section id="privacy" class="section">
         <div class="container mx-auto">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-10 md:mb-0 flex justify-center">
-                    <div class="relative">
-                        <div class="absolute inset-0 bg-gradient-to-br from-purple-400 to-pink-600 rounded-3xl opacity-20 blur-lg transform rotate-6"></div>
-                        <img src="https://page.genspark.site/v1/base64_upload/4f63fc56e3d3bb5a4730ac6106a986c8" alt="Sifter Privacy Feature" class="relative w-3/4 md:w-auto max-w-md app-shadow rounded-3xl">
+            <div class="flex flex-col-reverse md:flex-row items-center">
+                <div class="md:w-1/2 relative mb-10 md:mb-0">
+                    <div class="glow-effect"></div>
+                    <div class="flex justify-center">
+                        <img src="https://page.genspark.site/v1/base64_upload/4f63fc56e3d3bb5a4730ac6106a986c8" style="width:100%; height:auto; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.25); max-width:450px;" alt="Sifter Privacy Feature" class="app-screenshot">
                     </div>
                 </div>
-                <div class="md:w-1/2">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Customize Your Chat Privacy with Ease</h2>
-                    <p class="text-xl mb-8 opacity-90">Your privacy matters. Sifter gives you complete control over who can see your profile, send you messages, and view your activity. Customize privacy levels for different contacts.</p>
+                <div class="md:w-1/2 md:pl-10">
+                    <h2 class="text-3xl font-bold mb-6">Customize Your Chat Privacy with Ease</h2>
+                    <p class="text-xl mb-8">Your privacy matters. Sifter gives you complete control over who can see your profile, send you messages, and view your activity. Customize privacy levels for different contacts.</p>
                     
                     <div class="space-y-6">
-                        <div class="flex">
-                            <div class="flex-shrink-0 mr-4">
-                                <div class="h-12 w-12 rounded-full flex items-center justify-center bg-pink-500 bg-opacity-30">
-                                    <i class="fas fa-sliders-h text-xl"></i>
-                                </div>
+                        <div class="flex items-start">
+                            <div class="text-2xl text-pink-300 mr-4">
+                                <i class="fas fa-layer-group"></i>
                             </div>
                             <div>
                                 <h3 class="text-xl font-semibold mb-2">Multi-Level Privacy</h3>
-                                <p class="opacity-90">Set different privacy levels for different groups of contacts.</p>
+                                <p>Set different privacy levels for different groups of contacts.</p>
                             </div>
                         </div>
                         
-                        <div class="flex">
-                            <div class="flex-shrink-0 mr-4">
-                                <div class="h-12 w-12 rounded-full flex items-center justify-center bg-pink-500 bg-opacity-30">
-                                    <i class="fas fa-eye-slash text-xl"></i>
-                                </div>
+                        <div class="flex items-start">
+                            <div class="text-2xl text-pink-300 mr-4">
+                                <i class="fas fa-eye-slash"></i>
                             </div>
                             <div>
                                 <h3 class="text-xl font-semibold mb-2">Visibility Control</h3>
-                                <p class="opacity-90">Control your online status and who can see when you're active.</p>
+                                <p>Control your online status and who can see when you're active.</p>
                             </div>
                         </div>
                         
-                        <div class="flex">
-                            <div class="flex-shrink-0 mr-4">
-                                <div class="h-12 w-12 rounded-full flex items-center justify-center bg-pink-500 bg-opacity-30">
-                                    <i class="fas fa-ban text-xl"></i>
-                                </div>
+                        <div class="flex items-start">
+                            <div class="text-2xl text-pink-300 mr-4">
+                                <i class="fas fa-ban"></i>
                             </div>
                             <div>
                                 <h3 class="text-xl font-semibold mb-2">Blocking Features</h3>
-                                <p class="opacity-90">Block unwanted contacts with one tap and control who can message you.</p>
+                                <p>Block unwanted contacts with one tap and control who can message you.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-2xl text-pink-300 mr-4">
+                                <i class="fas fa-history"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Message Retention</h3>
+                                <p>Set custom message retention policies that work for your privacy needs.</p>
                             </div>
                         </div>
                     </div>
@@ -412,294 +557,269 @@
         </div>
     </section>
 
-    <!-- Zero-fee Marketplace Section -->
-    <section id="marketplace" class="section px-4 py-20">
+    <div class="divider"></div>
+
+    <!-- Marketplace Section -->
+    <section id="marketplace" class="section">
         <div class="container mx-auto">
             <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-10 md:mb-0 md:order-2 flex justify-center">
-                    <div class="relative">
-                        <div class="absolute inset-0 bg-gradient-to-br from-pink-400 to-red-600 rounded-3xl opacity-20 blur-lg transform -rotate-6"></div>
-                        <img src="https://page.genspark.site/v1/base64_upload/8d24b2dc4d95c6a7ef730f838113a32d" alt="Sifter Marketplace Feature" class="relative w-3/4 md:w-auto max-w-md app-shadow rounded-3xl">
-                    </div>
-                </div>
-                <div class="md:w-1/2 md:order-1">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Boost Your Business with Zero-Fee Digital Coupons</h2>
-                    <p class="text-xl mb-8 opacity-90">Sell your products and services without the hefty marketplace fees. Create digital coupons to attract customers and keep 100% of your earnings.</p>
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h2 class="text-3xl font-bold mb-6">Boost Your Business with Zero-Fee Digital Coupons</h2>
+                    <p class="text-xl mb-8">Sell your products and services without the hefty marketplace fees. Create digital coupons to attract customers and keep 100% of your earnings.</p>
                     
                     <div class="space-y-6">
-                        <div class="flex">
-                            <div class="flex-shrink-0 mr-4">
-                                <div class="h-12 w-12 rounded-full flex items-center justify-center bg-pink-500 bg-opacity-30">
-                                    <i class="fas fa-percentage text-xl"></i>
-                                </div>
+                        <div class="flex items-start">
+                            <div class="text-2xl text-pink-300 mr-4">
+                                <i class="fas fa-percentage"></i>
                             </div>
                             <div>
                                 <h3 class="text-xl font-semibold mb-2">Zero Commission</h3>
-                                <p class="opacity-90">Unlike other platforms that charge 15-30%, we take absolutely no fees on your sales.</p>
+                                <p>Unlike other platforms that charge 15-30%, we take absolutely no fees on your sales.</p>
                             </div>
                         </div>
                         
-                        <div class="flex">
-                            <div class="flex-shrink-0 mr-4">
-                                <div class="h-12 w-12 rounded-full flex items-center justify-center bg-pink-500 bg-opacity-30">
-                                    <i class="fas fa-ticket-alt text-xl"></i>
-                                </div>
+                        <div class="flex items-start">
+                            <div class="text-2xl text-pink-300 mr-4">
+                                <i class="fas fa-ticket-alt"></i>
                             </div>
                             <div>
                                 <h3 class="text-xl font-semibold mb-2">Digital Coupons</h3>
-                                <p class="opacity-90">Create and distribute digital coupons to attract more customers to your business.</p>
+                                <p>Create and distribute digital coupons to attract more customers to your business.</p>
                             </div>
                         </div>
                         
-                        <div class="flex">
-                            <div class="flex-shrink-0 mr-4">
-                                <div class="h-12 w-12 rounded-full flex items-center justify-center bg-pink-500 bg-opacity-30">
-                                    <i class="fas fa-money-bill-wave text-xl"></i>
-                                </div>
+                        <div class="flex items-start">
+                            <div class="text-2xl text-pink-300 mr-4">
+                                <i class="fas fa-hand-holding-usd"></i>
                             </div>
                             <div>
                                 <h3 class="text-xl font-semibold mb-2">Keep 100% Earnings</h3>
-                                <p class="opacity-90">Every dollar your customers pay goes directly to you with no middleman taking a cut.</p>
+                                <p>Every dollar your customers pay goes directly to you with no middleman taking a cut.</p>
                             </div>
                         </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-2xl text-pink-300 mr-4">
+                                <i class="fas fa-store"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Local Customer Base</h3>
+                                <p>Connect with customers in your area who are actively looking for your products.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 relative">
+                    <div class="glow-effect"></div>
+                    <div class="flex justify-center">
+                        <img src="https://page.genspark.site/v1/base64_upload/8d24b2dc4d95c6a7ef730f838113a32d" style="width:100%; height:auto; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.25); max-width:450px;" alt="Sifter Marketplace Feature" class="app-screenshot">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Comparison Section -->
-    <section class="section px-4 py-20 gradient-bg-reverse">
+    <div class="divider"></div>
+
+    <!-- Zero Fees Comparison Section -->
+    <section class="section bg-opacity-30 bg-purple-900">
         <div class="container mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Zero Fees, 100% Profit</h2>
-            <p class="text-xl text-center mb-12 max-w-3xl mx-auto opacity-90">Other platforms take 15-30% of your sales. With Sifter, you keep every penny you earn. No hidden fees, no commissions, no surprises.</p>
+            <h2 class="text-3xl font-bold mb-6 text-center">Zero Fees, 100% Profit</h2>
+            <p class="text-xl mb-12 text-center">Other platforms take 15-30% of your sales. With Sifter, you keep every penny you earn. No hidden fees, no commissions, no surprises.</p>
             
-            <div class="flex flex-col lg:flex-row justify-center items-stretch gap-8 mb-16">
-                <div class="glass-card p-8 rounded-2xl flex-1 max-w-md mx-auto">
-                    <div class="text-center mb-6">
-                        <div class="inline-block p-4 rounded-full bg-red-500 bg-opacity-20 mb-4">
-                            <i class="fas fa-store-slash text-4xl text-red-400"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-2">Traditional Marketplaces</h3>
-                        <p class="text-xl font-bold text-red-300">Lose 15-30% in fees</p>
-                    </div>
+            <div class="grid md:grid-cols-2 gap-10">
+                <div class="p-8 bg-opacity-20 bg-purple-800 rounded-xl">
+                    <h3 class="text-2xl font-bold mb-6 text-center">Traditional Marketplaces</h3>
+                    <p class="text-center text-xl mb-6 text-red-300">Lose 15-30% in fees</p>
                     
                     <ul class="space-y-4 mb-8">
                         <li class="flex items-start">
-                            <i class="fas fa-times text-red-400 mt-1 mr-3"></i>
+                            <span class="text-red-300 mr-2">✕</span>
                             <span>Platform takes 15-30% commission</span>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-times text-red-400 mt-1 mr-3"></i>
+                            <span class="text-red-300 mr-2">✕</span>
                             <span>Additional payment processing fees</span>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-times text-red-400 mt-1 mr-3"></i>
+                            <span class="text-red-300 mr-2">✕</span>
                             <span>Listing fees may apply</span>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-times text-red-400 mt-1 mr-3"></i>
+                            <span class="text-red-300 mr-2">✕</span>
                             <span>Subscription costs for premium features</span>
                         </li>
                     </ul>
                     
-                    <div class="text-center p-4 bg-white bg-opacity-10 rounded-xl">
+                    <div class="bg-opacity-30 bg-red-900 p-6 rounded-lg text-center">
                         <p class="text-lg mb-2">On $1,000 in sales:</p>
                         <p class="text-2xl font-bold text-red-300">You keep only $700-$850</p>
                     </div>
                 </div>
                 
-                <div class="glass-card p-8 rounded-2xl flex-1 max-w-md mx-auto transform lg:scale-110 z-10 border-2 border-green-400 border-opacity-50">
-                    <div class="text-center mb-6">
-                        <div class="inline-block p-4 rounded-full bg-green-500 bg-opacity-20 mb-4">
-                            <i class="fas fa-store text-4xl text-green-400"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-2">Sifter Marketplace</h3>
-                        <p class="text-xl font-bold text-green-300">Keep 100% of sales</p>
-                    </div>
+                <div class="p-8 bg-opacity-20 bg-green-800 rounded-xl">
+                    <h3 class="text-2xl font-bold mb-6 text-center">Sifter Marketplace</h3>
+                    <p class="text-center text-xl mb-6 text-green-300">Keep 100% of sales</p>
                     
                     <ul class="space-y-4 mb-8">
                         <li class="flex items-start">
-                            <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+                            <span class="text-green-300 mr-2">✓</span>
                             <span>Zero commission - keep 100%</span>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+                            <span class="text-green-300 mr-2">✓</span>
                             <span>No payment processing fees</span>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+                            <span class="text-green-300 mr-2">✓</span>
                             <span>Free listings - no limits</span>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+                            <span class="text-green-300 mr-2">✓</span>
                             <span>Digital coupons included at no cost</span>
                         </li>
                     </ul>
                     
-                    <div class="text-center p-4 bg-green-500 bg-opacity-20 rounded-xl">
+                    <div class="bg-opacity-30 bg-green-900 p-6 rounded-lg text-center">
                         <p class="text-lg mb-2">On $1,000 in sales:</p>
                         <p class="text-2xl font-bold text-green-300">You keep ALL $1,000</p>
                     </div>
                 </div>
             </div>
             
-            <div class="text-center">
-                <a href="#download" class="btn-primary py-4 px-10 rounded-full font-semibold inline-block text-xl">Start Selling Fee-Free</a>
+            <div class="text-center mt-12">
+                <div class="coming-soon-badge">LAUNCHING SOON</div>
+                <p class="text-xl mb-6">Be the first to sell with zero fees when we launch</p>
+                <a href="#waitlist" class="bg-gradient-to-r from-pink-500 to-orange-400 text-white font-bold py-3 px-8 rounded-full inline-block hover:from-pink-600 hover:to-orange-500 transition duration-300">Join the Waitlist</a>
             </div>
         </div>
     </section>
+
+    <div class="divider"></div>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="section px-4 py-20">
+    <section id="testimonials" class="section">
         <div class="container mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">What Our Users Say</h2>
-            <p class="text-xl text-center mb-16 max-w-3xl mx-auto opacity-90">Don't just take our word for it. Hear from people who have transformed their social lives and businesses with Sifter.</p>
+            <h2 class="text-3xl font-bold mb-10 text-center">What Our Users Say</h2>
+            <p class="text-xl text-center mb-12">Don't just take our word for it. Hear from our beta testers who have transformed their social lives and businesses with Sifter.</p>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="testimonial rounded-xl p-8 flex flex-col h-full">
-                    <div class="mb-6 flex-grow">
-                        <p class="italic opacity-90">"After moving to a new city, I was struggling to meet new people. Sifter helped me find friends with similar interests in my neighborhood. Now I have a whole group of hiking buddies!"</p>
-                    </div>
-                    <div class="flex items-center">
-                        <div class="h-12 w-12 rounded-full bg-blue-500 flex items-center justify-center text-lg font-semibold mr-4">JD</div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full bg-pink-400 flex items-center justify-center text-white font-bold mr-4">JD</div>
                         <div>
-                            <h4 class="font-semibold">James D.</h4>
-                            <p class="text-sm opacity-80">New City Resident</p>
+                            <h4 class="font-bold">James D.</h4>
+                            <p class="text-sm text-pink-200">New City Resident</p>
                         </div>
                     </div>
+                    <p class="italic">"After moving to a new city, I was struggling to meet new people. Sifter helped me find friends with similar interests in my neighborhood. Now I have a whole group of hiking buddies!"</p>
                 </div>
                 
-                <!-- Testimonial 2 -->
-                <div class="testimonial rounded-xl p-8 flex flex-col h-full">
-                    <div class="mb-6 flex-grow">
-                        <p class="italic opacity-90">"As a small business owner, I was losing too much profit to marketplace fees. With Sifter, I keep 100% of my sales and have increased my customer base by 40% using their digital coupons."</p>
-                    </div>
-                    <div class="flex items-center">
-                        <div class="h-12 w-12 rounded-full bg-pink-500 flex items-center justify-center text-lg font-semibold mr-4">MT</div>
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full bg-pink-400 flex items-center justify-center text-white font-bold mr-4">MT</div>
                         <div>
-                            <h4 class="font-semibold">Michelle T.</h4>
-                            <p class="text-sm opacity-80">Small Business Owner</p>
+                            <h4 class="font-bold">Michelle T.</h4>
+                            <p class="text-sm text-pink-200">Small Business Owner</p>
                         </div>
                     </div>
+                    <p class="italic">"As a small business owner, I was losing too much profit to marketplace fees. With Sifter, I keep 100% of my sales and have increased my customer base by 40% using their digital coupons."</p>
                 </div>
                 
-                <!-- Testimonial 3 -->
-                <div class="testimonial rounded-xl p-8 flex flex-col h-full">
-                    <div class="mb-6 flex-grow">
-                        <p class="italic opacity-90">"The privacy features on Sifter are next level. I can control exactly who sees my profile and the auto-delete chat feature gives me peace of mind knowing sensitive conversations don't live forever."</p>
-                    </div>
-                    <div class="flex items-center">
-                        <div class="h-12 w-12 rounded-full bg-purple-500 flex items-center justify-center text-lg font-semibold mr-4">RK</div>
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full bg-pink-400 flex items-center justify-center text-white font-bold mr-4">RK</div>
                         <div>
-                            <h4 class="font-semibold">Ryan K.</h4>
-                            <p class="text-sm opacity-80">Privacy Enthusiast</p>
+                            <h4 class="font-bold">Ryan K.</h4>
+                            <p class="text-sm text-pink-200">Privacy Enthusiast</p>
                         </div>
                     </div>
+                    <p class="italic">"The privacy features on Sifter are next level. I can control exactly who sees my profile and the auto-delete chat feature gives me peace of mind knowing sensitive conversations don't live forever."</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section id="download" class="section px-4 py-20 gradient-bg-reverse">
-        <div class="container mx-auto text-center">
-            <h2 class="text-3xl md:text-5xl font-bold mb-6">Download Sifter Today</h2>
-            <p class="text-xl mb-10 max-w-3xl mx-auto opacity-90">Join thousands of people who are meeting new friends, discovering local activities, and selling products without fees.</p>
-            
-            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-16">
-                <a href="#" class="bg-black text-white py-3 px-8 rounded-full inline-flex items-center justify-center">
-                    <i class="fab fa-apple text-3xl mr-3"></i>
-                    <div class="text-left">
-                        <div class="text-xs">Download on the</div>
-                        <div class="text-xl font-semibold">App Store</div>
+    <div class="divider"></div>
+
+    <!-- Final CTA Section -->
+    <section id="waitlist" class="section">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <div class="coming-soon-badge">COMING SOON</div>
+                    <h2 class="text-3xl font-bold mb-6">Be First in Line When Sifter Launches</h2>
+                    <p class="text-xl mb-8">Join our waitlist today and be the first to experience the revolution in local connections and zero-fee marketplace. Early subscribers will receive exclusive benefits and premium features for free.</p>
+                    
+                    <form class="waitlist-form mb-6">
+                        <input type="email" placeholder="Enter your email address" required>
+                        <button type="submit">Join Waitlist</button>
+                    </form>
+                    
+                    <p class="text-sm opacity-70">We respect your privacy. Your email will only be used for Sifter updates and launch notifications.</p>
+                </div>
+                <div class="md:w-1/2 relative">
+                    <div class="glow-effect"></div>
+                    <div class="flex justify-center">
+                        <img src="https://page.genspark.site/v1/base64_upload/4f63fc56e3d3bb5a4730ac6106a986c8" style="width:100%; height:auto; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.25); max-width:450px;" alt="Sifter App Interface" class="app-screenshot">
                     </div>
-                </a>
-                <a href="#" class="bg-black text-white py-3 px-8 rounded-full inline-flex items-center justify-center">
-                    <i class="fab fa-google-play text-3xl mr-3"></i>
-                    <div class="text-left">
-                        <div class="text-xs">Get it on</div>
-                        <div class="text-xl font-semibold">Google Play</div>
-                    </div>
-                </a>
-            </div>
-            
-            <div class="flex justify-center">
-                <div class="relative w-full max-w-md">
-                    <div class="absolute inset-0 bg-gradient-to-br from-blue-400 to-purple-600 rounded-3xl opacity-20 blur-lg transform rotate-3"></div>
-                    <img src="https://page.genspark.site/v1/base64_upload/4f63fc56e3d3bb5a4730ac6106a986c8" alt="Sifter App" class="relative w-full app-shadow rounded-3xl">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="px-4 py-12 bg-purple-900 bg-opacity-50">
+    <footer class="py-10 bg-opacity-30 bg-purple-900">
         <div class="container mx-auto">
-            <div class="flex flex-col md:flex-row justify-between mb-12">
-                <div class="mb-10 md:mb-0">
-                    <div class="flex items-center mb-4">
-                        <div class="text-3xl font-bold mr-2">S</div>
-                        <h2 class="text-2xl font-bold">Sifter</h2>
-                    </div>
-                    <p class="max-w-xs opacity-80">Discover a new, discreet way to meet people for free and sell products with zero fees.</p>
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-2xl font-bold">SIFTER <span class="beta-tag">BETA</span></h3>
+                    <p class="mt-2 opacity-70">© 2023 Sifter Inc. All rights reserved.</p>
                 </div>
-                
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-10">
-                    <div>
-                        <h3 class="font-semibold mb-4">Features</h3>
-                        <ul class="space-y-2 opacity-80">
-                            <li><a href="#map" class="hover:text-pink-300 transition-colors">Map Exploration</a></li>
-                            <li><a href="#chat" class="hover:text-pink-300 transition-colors">Chat Rooms</a></li>
-                            <li><a href="#privacy" class="hover:text-pink-300 transition-colors">Privacy Settings</a></li>
-                            <li><a href="#marketplace" class="hover:text-pink-300 transition-colors">Zero-Fee Marketplace</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div>
-                        <h3 class="font-semibold mb-4">Company</h3>
-                        <ul class="space-y-2 opacity-80">
-                            <li><a href="#" class="hover:text-pink-300 transition-colors">About Us</a></li>
-                            <li><a href="#" class="hover:text-pink-300 transition-colors">Careers</a></li>
-                            <li><a href="#" class="hover:text-pink-300 transition-colors">Press</a></li>
-                            <li><a href="#" class="hover:text-pink-300 transition-colors">Contact</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div>
-                        <h3 class="font-semibold mb-4">Legal</h3>
-                        <ul class="space-y-2 opacity-80">
-                            <li><a href="#" class="hover:text-pink-300 transition-colors">Terms of Service</a></li>
-                            <li><a href="#" class="hover:text-pink-300 transition-colors">Privacy Policy</a></li>
-                            <li><a href="#" class="hover:text-pink-300 transition-colors">Cookie Policy</a></li>
-                            <li><a href="#" class="hover:text-pink-300 transition-colors">Community Guidelines</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div>
-                        <h3 class="font-semibold mb-4">Connect</h3>
-                        <div class="flex space-x-4 mb-4">
-                            <a href="#" class="h-10 w-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center hover:bg-opacity-30 transition-all">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a href="#" class="h-10 w-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center hover:bg-opacity-30 transition-all">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="#" class="h-10 w-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center hover:bg-opacity-30 transition-all">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a href="#" class="h-10 w-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center hover:bg-opacity-30 transition-all">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                        </div>
-                        <p class="opacity-80">Follow us for updates</p>
-                    </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-white hover:text-pink-300 text-xl"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-white hover:text-pink-300 text-xl"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-white hover:text-pink-300 text-xl"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-white hover:text-pink-300 text-xl"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
-            
-            <div class="pt-8 border-t border-white border-opacity-20 text-center opacity-70">
-                <p>&copy; 2023 Sifter. All rights reserved.</p>
+            <div class="mt-8 grid md:grid-cols-4 gap-6">
+                <div>
+                    <h4 class="font-bold mb-4">Company</h4>
+                    <ul class="space-y-2 opacity-70">
+                        <li><a href="#" class="hover:text-pink-300">About Us</a></li>
+                        <li><a href="#" class="hover:text-pink-300">Careers</a></li>
+                        <li><a href="#" class="hover:text-pink-300">Press</a></li>
+                        <li><a href="#" class="hover:text-pink-300">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Features</h4>
+                    <ul class="space-y-2 opacity-70">
+                        <li><a href="#features" class="hover:text-pink-300">Meet People</a></li>
+                        <li><a href="#explore" class="hover:text-pink-300">Explore Map</a></li>
+                        <li><a href="#" class="hover:text-pink-300">Chat Rooms</a></li>
+                        <li><a href="#marketplace" class="hover:text-pink-300">Marketplace</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Legal</h4>
+                    <ul class="space-y-2 opacity-70">
+                        <li><a href="#" class="hover:text-pink-300">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-pink-300">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-pink-300">Cookie Policy</a></li>
+                        <li><a href="#" class="hover:text-pink-300">GDPR</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Support</h4>
+                    <ul class="space-y-2 opacity-70">
+                        <li><a href="#" class="hover:text-pink-300">Help Center</a></li>
+                        <li><a href="#" class="hover:text-pink-300">FAQs</a></li>
+                        <li><a href="#" class="hover:text-pink-300">Community</a></li>
+                        <li><a href="#" class="hover:text-pink-300">Developer API</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </footer>
